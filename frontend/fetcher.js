@@ -1,5 +1,5 @@
 export let guid = "";
-
+export const ip = "http://irc.pinsvin0.pl/api";
 export function set_credentials(credentials) {
   guid = credentials;
 }
@@ -8,7 +8,7 @@ export async function fetch_messages() {
   console.log("listening!");
   let data = {};
   data.guid = guid;
-  let response = await fetch("http://localhost:9000/subscribe", {
+  let response = await fetch(ip + "/subscribe", {
     method: "POST",
     body: JSON.stringify(data),
   });
@@ -29,7 +29,7 @@ export async function send_message(text) {
   data.guid = guid;
   data.text = text;
 
-  const response = await fetch("http://localhost:9000/send_message", {
+  const response = await fetch(ip + "/send_message", {
     method: "POST",
     body: JSON.stringify(data),
   });
@@ -43,7 +43,7 @@ export async function send_message(text) {
     document.cookie.split(";").forEach(function (c) {
       document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
     });
-    window.location.href = "http://localhost:5500/frontend/index.html";
+    window.location.href = ip + "/index.html";
   }
 
   document.getElementById("message").value = "";
