@@ -51,7 +51,7 @@ func process_command(command string, request map[string]string) bool {
 	if com == "/quit" {
 		message := Message{}
 		text := strings.Join(splitted[1:], " ");
-		message.text = fmt.Sprintf("%s właśnie wyszedł POWÓD: %s", irc.guid_nickname[request["guid"]],text);
+		message.text = fmt.Sprintf(QUIT_MESSAGE, irc.guid_nickname[request["guid"]],text);
 		message.color = "gray"
 		message.sender = "";
 		message.time = get_current_time();
@@ -76,7 +76,7 @@ func process_command(command string, request map[string]string) bool {
 		}
 		old_nickname := irc.guid_nickname[guid]
 		irc.guid_nickname[guid] = splitted[1];
-		message := Message{fmt.Sprintf("%s właśnie zmienił swój nick na %s!", old_nickname, irc.guid_nickname[guid]),"", get_current_time(), "gray" }
+		message := Message{fmt.Sprintf(NICK_CHANGE, old_nickname, irc.guid_nickname[guid]),"", get_current_time(), "gray" }
 		enqueue_all(message)
 		return true
 	}
