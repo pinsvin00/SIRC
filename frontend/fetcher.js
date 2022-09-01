@@ -1,5 +1,5 @@
 export let guid = "";
-export const ip = "http://irc.pinsvin0.pl/api";
+export const ip = "your ip here";
 export function set_credentials(credentials) {
   guid = credentials;
 }
