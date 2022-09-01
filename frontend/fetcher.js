@@ -1,5 +1,5 @@
 export let guid = "";
-export const ip = "your ip here";
+export const ip = window.location.origin;
 export function set_credentials(credentials) {
   guid = credentials;
 }
