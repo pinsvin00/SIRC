@@ -10,8 +10,6 @@ IRC server can handle the following commands
 # Running the app
 ## Backend
 ```
-
-
 If you want to use the server locally, without any runner just run:
 go run .
 
@@ -24,7 +22,6 @@ If want to change the server messages content, enter the translations.go file an
 Consider that messages need to have proper printf Formatting. Below are provided the formats of each server message.
 - QUIT MESSAGE (%s %s) (nickname, reason)
 - NICK CHANGE (%s %s) (old_nickname, new_nickname)
-
 ```
 
 ## Frontend
